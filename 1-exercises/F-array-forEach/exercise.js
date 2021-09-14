@@ -9,6 +9,29 @@
 
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
+
+// function multipleOfNum(num){
+//  if (num % 3) {
+//    return "Fizz"
+//   } else if (num % 5){
+//     return "Buzz"
+//   } else if (num % 3 && num % 5){
+//     return "FizzBuzz"
+//   } else{
+//     return num;
+//   };
+// }
+arr.forEach(num => {
+  if  (num % 3 === 0 && num % 5 === 0){
+  console.log("FizzBuzz");
+} else if (num % 5 === 0) {
+  console.log("Buzz");
+} else if(num % 3 === 0){ 
+  console.log("Fizz");
+} else {
+  console.log(num);
+}});
+
 /* EXPECTED OUTPUT */
 
 /*
