@@ -12,7 +12,8 @@ Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the same elements, except sorted.
 */
-function sortArray() {
+function sortArray(arrTwo) {
+  return arrTwo.sort();
 }
 
 /*
@@ -25,16 +26,25 @@ Write a function that:
 - Removes any forward slashes (/) in the strings.
 - Makes the strings all lowercase.
 */
-function tidyUpString() {
+function tidyUpString(arrOfString) {
+ return arrOfString.map(str => str.trim().replace(/\//g, "").toLowerCase());
+//chained functions on .map method
 }
 
 /*
 Write a function that:
 - Takes an array and an index as input.
 - Returns a new array containing the same elements, but without the element at the passed index.
+
+arrThree.splice(ind, 1)
+
+
 */
 
-function remove() {
+function remove(arrThree, ind) {
+  arrThree.splice(ind, 1);
+  return arrThree;
+
 }
 
 /*
@@ -45,7 +55,11 @@ Write a function that:
 - Numbers greater 100 must be replaced with 100.
 */
 
-function formatPercentage() {
+function formatPercentage(arrOfNum) {
+  return arrOfNum.map(num => {if (num > 100){
+    return 100;
+  } 
+return num;}).map(num => `${parseFloat(num).toFixed(2)}`);
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
