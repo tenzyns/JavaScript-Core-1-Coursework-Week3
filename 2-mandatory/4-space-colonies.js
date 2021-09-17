@@ -13,9 +13,23 @@
         Output: Is an array
         Logic: Only strings that start with A, and finish with family
   
+
+        1. name start with A: first char is "A"
+        -> arr[i][0]==="A"
+        2. last name "family"
+        -> arr[i][str.length - 7] === "family"
+        => 1 && 2 true -> newArr.push[arr[i]]
+        return newArr
+
 */
 
-function getSettlers() {}
+function getSettlers(colonists) {
+  let settlers = [];
+  colonists.every(item => {if (item[0] === "A" && item.substring(item.length - 6) === "family"){
+    settlers.push(item);
+  }})
+  return settlers;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
