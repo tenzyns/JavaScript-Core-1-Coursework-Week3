@@ -9,9 +9,21 @@
     Write a function that finds the oxygen level of the first safe planet - Oxygen between 19.5% and 23.5%
 
     Some string methods that might help you here are .replace() and .substring(). 
-*/
 
-function findSafeOxygenLevel() {}
+1. 
+
+
+
+
+    */
+
+function findSafeOxygenLevel(o2ListOfPlanet) {
+ const o2Num = o2ListOfPlanet.map(o2 => o2.substring(0, o2.length - 2));
+ const foundO2 =  o2Num.find(level => level < 23.5 && level > 19.5);
+ return `${foundO2}\%`
+ 
+}
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

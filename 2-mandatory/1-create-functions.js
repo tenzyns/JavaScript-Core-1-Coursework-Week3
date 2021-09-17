@@ -13,7 +13,9 @@ Write a function that:
 - Returns a new array containing the same elements, except sorted.
 */
 function sortArray(arrTwo) {
-  return arrTwo.sort();
+  //let newArr = arrTwo;
+ // return newArr.sort(); //This still changes the original array, so it fails
+return arrTwo.map(item => item).sort();
 }
 
 /*
@@ -35,16 +37,12 @@ function tidyUpString(arrOfString) {
 Write a function that:
 - Takes an array and an index as input.
 - Returns a new array containing the same elements, but without the element at the passed index.
-
-arrThree.splice(ind, 1)
-
-
 */
 
-function remove(arrThree, ind) {
-  arrThree.splice(ind, 1);
-  return arrThree;
-
+function remove(arrThree, index) {
+  // arrThree.splice(ind, 1);
+  // return arrThree;
+return arrThree.slice(0, index).concat(arrThree.slice(index + 1, arrThree.length));
 }
 
 /*
@@ -59,9 +57,9 @@ function formatPercentage(arrOfNum) {
   return arrOfNum.map(num => {if (num > 100){
     return 100;
   } 
-return num;}).map(num => `${parseFloat(num).toFixed(2)}`);
+return num;}).map(num => `${parseFloat(num.toFixed(2))}\%`);
 }
-
+// npm test -- --testPathPattern 1-create-functions
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("first5 function works for more than five elements", () => {
