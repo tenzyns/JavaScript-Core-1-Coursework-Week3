@@ -19,11 +19,13 @@
 
 function findSafeOxygenLevel(o2ListOfPlanet) {
   const foundPlanet = o2ListOfPlanet.find(percent => {if (percent.includes("%", percent.length-1)) {
+    //checking each item has % sign as their last char
     let o2Num = percent.substring(0, percent.length - 1);
+    //this removes the % sign
     return o2Num < 23.5 && o2Num > 19.5
   }
 return undefined});
-
+//item without % sign as their last char will return "undefined"
  return foundPlanet;
 
 }
