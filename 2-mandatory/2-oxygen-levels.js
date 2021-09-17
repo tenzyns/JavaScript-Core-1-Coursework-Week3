@@ -18,10 +18,14 @@
     */
 
 function findSafeOxygenLevel(o2ListOfPlanet) {
- const o2Num = o2ListOfPlanet.map(o2 => o2.substring(0, o2.length - 2));
- const foundO2 =  o2Num.find(level => level < 23.5 && level > 19.5);
- return `${foundO2}\%`
- 
+  const foundPlanet = o2ListOfPlanet.find(percent => {if (percent.includes("%", percent.length-1)) {
+    let o2Num = percent.substring(0, percent.length - 1);
+    return o2Num < 23.5 && o2Num > 19.5
+  }
+return undefined});
+
+ return foundPlanet;
+
 }
 
 
