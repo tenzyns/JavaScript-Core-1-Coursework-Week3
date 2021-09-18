@@ -8,13 +8,20 @@
 */
 
 function getEligibleStudents(presence) {
-  let eligibles = presence.find(stu => {if (stu[1] >= 8){
-    return stu;
-  }else{
-    return [];
-  }})
-  return eligibles;
+  let eligibles = presence.map(stu =>  {if (stu[1] >= 8) {return stu[0];}
+}).filter(item => item !== undefined);
+if (eligibles.length === 0) {
+  return [];
 }
+return eligibles;
+}
+
+/* My notes for the above codes
+.map gets an array of only names having >=8 attendance and rest undefined 
+so the chained .filter picks out the array of names ignoring the undefined.
+if there is not array with student having attendance >=8 then eligibles
+array contains no element to filter and returns []
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
