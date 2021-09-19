@@ -20,8 +20,8 @@
 function checkCodeIsThere(stringText) {
   let magicWord = "code";
   //edit code below
-  if (stringText) {
-    return stringText;
+  if (stringText.includes(magicWord)) {
+    return stringText.indexOf(magicWord);
   } else {
     return "Not found";
   }
@@ -64,14 +64,17 @@ function checkCodeIsThere(stringText) {
   
   Hint: Use the corresponding array method to split the array.
 */
-function getTransportModes() {}
+function getTransportModes(placeAndModes) {
+  const transportModes = placeAndModes.slice(1);
+  return transportModes;
+}
 
 /*
   Implement the function isAccessibleByTransportMode that
 
    - Accepts two parameters:
      1) First parameter is an array of transport modes
-        e.g: ["tube", "river boat"]
+        e.g: [tube", "river boat"]
      2) Second parameter is a string containing a transport mode
         e.g: "river boat"
      
@@ -81,7 +84,9 @@ function getTransportModes() {}
     
   Hint: Use the corresponding array method to decide if an element is member of an array.
 */
-function isAccessibleByTransportMode() {}
+function isAccessibleByTransportMode(transportModes, strMode) {
+  return transportModes.includes(strMode);
+}
 
 /*
   Implement the function getLocationName that
@@ -92,7 +97,10 @@ function isAccessibleByTransportMode() {}
    - Returns the name of the location
       e.g: "Tower Bridge"
 */
-function getLocationName() {}
+function getLocationName(placeAndAvailableModes) {
+  const placeName = placeAndAvailableModes[0];
+  return placeName;
+}
 
 /*
  We arrived at the final method. it won't take long if you use the previously implemented functions wisely.
@@ -121,8 +129,12 @@ function getLocationName() {}
    
   Advanced challange: try to use arrow function when invoking an array method.
 */
-function journeyPlanner(locations, transportMode) {
-  // Implement the function body
+function journeyPlanner(locationsAndModes, mode) {
+  let matchedPlaceAndModes = locationsAndModes.filter(place =>  isAccessibleByTransportMode(place, mode));
+  let locations = matchedPlaceAndModes.map(getLocationName);
+  return locations;
+
+
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
