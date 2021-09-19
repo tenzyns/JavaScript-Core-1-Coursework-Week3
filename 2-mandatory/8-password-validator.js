@@ -22,17 +22,13 @@ Expected Result:
 PasswordValidationResult=  [false, false, false, false, true]
 
 */
-function isDuplicate(passwords, password){
-  for (let i = 0; i<passwords.length; i++){
-    if (password !== passwords[i])
-    return true;
-  }
-}
+
+
 function validatePasswords(passwords) {
- return passwords.map(password => { return containsLowercaseLetter(password) && 
+ return passwords.map((password, index, passwords) => { return containsLowercaseLetter(password) && 
     containsUppercaseLetter(password) && containsNumber(password) && 
-    containsSymbol(password) && password.length >= 5 && isDuplicate(password) && 
-    isDuplicate(passwords, password)
+    containsSymbol(password) && password.length >= 5 && 
+    index === passwords.indexOf(password);
 });
 }
 
