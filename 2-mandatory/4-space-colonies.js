@@ -21,17 +21,18 @@
         => 1 && 2 true -> newArr.push[arr[i]]
         return newArr
 
-*/
-
-function getSettlers(colonists) {
-  let settlers = [];
+        let settlers = [];
   colonists.every(item => {
     if (item[0] === "A" && item.substring(item.length - 6) === "family"){
     settlers.push(item);
   }})
   return settlers;
 }
+*/
 
+function getSettlers(colonists) {
+  return colonists.filter(family => family[0] === "A" && family.includes("family", [(family.length - 6)]))
+}
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("getSettlers function works", () => {
