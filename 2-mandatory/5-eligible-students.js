@@ -8,8 +8,15 @@
 
 1. select only the arrays in the array with attendance <= 8.
 2. Pick up only the names of those arrays.
-  */
 
+  --- The following codes also works ----
+ let eligibles = presence.map(stu =>  {if (stu[1] >= 8) {return stu[0];}
+}).filter(item => item !== undefined);
+if (eligibles.length === 0) {
+  return [];
+}
+return eligibles;
+*/
 function getEligibleStudents(presence) {
  const eligibles = presence.filter(stuAttend => stuAttend[1] >= 8);
  if (eligibles === []){
