@@ -25,7 +25,8 @@
 
 function getSettlers(colonists) {
   let settlers = [];
-  colonists.every(item => {if (item[0] === "A" && item.substring(item.length - 6) === "family"){
+  colonists.every(item => {
+    if (item[0] === "A" && item.substring(item.length - 6) === "family"){
     settlers.push(item);
   }})
   return settlers;

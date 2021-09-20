@@ -5,16 +5,18 @@
   - Accepts an array which contains all the students' names and their attendance counts
     (see tests to confirm how this data will be structured)
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
-*/
+
+1. select only the arrays in the array with attendance <= 8.
+2. Pick up only the names of those arrays.
+  */
 
 function getEligibleStudents(presence) {
-  let eligibles = presence.map(stu =>  {if (stu[1] >= 8) {return stu[0];}
-}).filter(item => item !== undefined);
-if (eligibles.length === 0) {
-  return [];
-}
-return eligibles;
-}
+ const eligibles = presence.filter(stuAttend => stuAttend[1] >= 8);
+ if (eligibles === []){
+   return [];
+ } else {
+ return eligibles.map(stuAttend => stuAttend[0]);
+}}
 
 /* My notes for the above codes
 .map gets an array of only names having >=8 attendance and rest undefined 
